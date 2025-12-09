@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>IPL Win Predictor — Live Probability</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>IPL Win Predictor</h1>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form action="/predict" method="post" id="predictForm">
+      <div class="row">
+        <div class="col">
+          <label>Select batting team</label>
+          <select name="batting_team" id="batting_team" required>
+            {% for t in teams %}<option value="{{t}}">{{t}}</option>{% endfor %}
+          </select>
+        </div>
+        <div class="col">
+          <label>Select bowling team</label>
+          <select name="bowling_team" id="bowling_team" required>
+            {% for t in teams %}<option value="{{t}}">{{t}}</option>{% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label>Select host city</label>
+          <select name="city">
+            <option value="">--Unknown--</option>
+            {% for c in cities %}<option value="{{c}}">{{c}}</option>{% endfor %}
+          </select>
+        </div>
+        <div class="col">
+          <label>Toss winner</label>
+          <select name="toss_winner">
+            {% for t in teams %}<option value="{{t}}">{{t}}</option>{% endfor %}
+          </select>
+        </div>
+        <div class="col">
+          <label>Toss decision</label>
+          <select name="toss_decision">
+            <option value="bat">Bat</option>
+            <option value="field">Field</option>
+          </select>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col">
+          <label>Target (set 0 if first innings)</label>
+          <input type="number" name="target" step="1" min="0" value="0">
+        </div>
+        <div class="col">
+          <label>Score</label>
+          <input type="number" name="score" step="1" min="0" value="0">
+        </div>
+        <div class="col">
+          <label>Overs completed</label>
+          <input type="number" name="overs" step="0.1" min="0" max="20" value="0">
+        </div>
+        <div class="col">
+          <label>Wickets out</label>
+          <input type="number" name="wickets" step="1" min="0" max="10" value="0">
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:14px">
+        <button type="submit" class="btn">Predict Probability</button>
+      </div>
+    </form>
+
+    {% if prediction %}
+      <div class="result">
+        <h2>Predicted Probabilities</h2>
+
+        <div class="prob-row">
+          <div class="team">{{ prediction[0].team }}</div>
+          <div class="badge">{{ prediction[0].prob }}%</div>
+        </div>
+        <div class="bar">
+          <div class="bar-fill" style="width: {{ prediction[0].prob }}%"></div>
+        </div>
+
+        <div class="prob-row">
+          <div class="team">{{ prediction[1].team }}</div>
+          <div class="badge">{{ prediction[1].prob }}%</div>
+        </div>
+        <div class="bar">
+          <div class="bar-fill bar-fill-2" style="width: {{ prediction[1].prob }}%"></div>
+        </div>
+
+        <div class="inputs">
+          <h4>Inputs</h4>
+          <pre>{{ inputs }}</pre>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>

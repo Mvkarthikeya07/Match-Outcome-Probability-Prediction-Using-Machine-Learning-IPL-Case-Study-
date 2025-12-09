@@ -1,0 +1,20 @@
+body { font-family: Inter, Arial, sans-serif; background: #f4f7fb; color:#111; }
+.container { max-width: 920px; margin: 30px auto; background: #fff; padding: 22px; border-radius:10px; box-shadow: 0 6px 20px rgba(16,24,40,0.08);}
+h1{ margin-top:0; font-size:28px; }
+.row { display:flex; gap:12px; margin-bottom:12px; }
+.col { flex:1; display:flex; flex-direction:column; }
+label { font-weight:600; margin-bottom:6px; font-size:13px; color:#333; }
+select, input[type="number"] { padding:10px; border-radius:8px; border:1px solid #e6e9ef; background:#fafbfd;}
+.btn { background:#1f6feb; color:white; padding:10px 18px; border-radius:8px; border:none; cursor:pointer; font-weight:700; box-shadow:0 6px 18px rgba(31,111,235,0.12); }
+
+.result { margin-top:22px; padding:16px; background:#fcfeff; border-radius:8px; border:1px solid #eef4ff;}
+.prob-row { display:flex; justify-content:space-between; align-items:center; margin-top:10px; }
+.team { font-weight:700; font-size:16px; color:#0b2545; }
+.badge { background:#eef6ff; color:#0b5ed7; padding:6px 10px; border-radius:6px; font-weight:700; border:1px solid #d7edff; }
+
+.bar { width:100%; height:14px; background:#eef3fb; border-radius:8px; margin-top:6px; overflow:hidden; }
+.bar-fill { height:100%; background: linear-gradient(90deg,#2a8bf2,#1ea6ff); border-radius:8px; transition: width 0.6s ease; }
+.bar-fill-2 { background: linear-gradient(90deg,#ff6a6a,#ff9472); }
+
+.inputs { margin-top:12px; background:#fbfcfe; padding:10px; border-radius:6px; border:1px solid #f0f5ff;}
+.error { background:#fff3f3; color:#b00000; padding:10px; border-radius:6px; margin-bottom:10px; }
