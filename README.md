@@ -63,8 +63,6 @@ Output: Win probability distribution between the two teams
 🔹 Clean Input UI
 <img width="1366" height="768" alt="2025-12-09 (8)" src="https://github.com/user-attachments/assets/d83f86f7-a808-41cd-909b-6f5a57036d0f" />
 
-Replace images/output_1.png, output_2.png, and output_3.png with your actual screenshots.
-
 ⚙️ Tech Stack
 Backend
 
@@ -126,9 +124,6 @@ python train_model.py
 
 4️⃣ Run the Flask app
 python app.py
-
-5️⃣ Open in browser
-http://127.0.0.1:5000/
 
 🌐 Deployment
 
